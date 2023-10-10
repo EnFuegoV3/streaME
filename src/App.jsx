@@ -1,16 +1,23 @@
 
+import { useState } from 'react'
 import { LandingPage } from './Components/LandingPage'
 
 import './assets/css/App.css'
+import { useEffect } from 'react'
 
-function App() {
+export function App() {
   
+
+
+
 
   return (
     <>
-      <LandingPage />
+      <LandingPage
+        
+        />
     </>
   )
 }
 
-export default App
+
