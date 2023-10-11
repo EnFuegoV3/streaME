@@ -13,9 +13,8 @@ export function App() {
 
   return (
     <>
-      <LandingPage
-        
-        />
+      <LandingPage />
+      
     </>
   )
 }

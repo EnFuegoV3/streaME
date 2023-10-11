@@ -1,5 +1,6 @@
 import '../assets/css/LandingPage.css'
 import { useState, useEffect } from 'react'
+import { ResultCards } from './ResultCards'
 
 export function LandingPage(){
 
@@ -13,6 +14,8 @@ export function LandingPage(){
         setMovieData(data.results)
         
     }
+
+
     
     function handleSearch(event) {
         const name = event.target;
@@ -21,7 +24,13 @@ export function LandingPage(){
     }
 
     const searchResults = movieData.map(movie => {
-         return <p key={movie.id}>{movie.title}</p>
+         return <ResultCards
+                    key={movie.id}
+                    id={movie.id}
+                    poster={movie.poster_path}
+                    title={movie.title}
+                    release={movie.release_date}  
+         />
     })
 
     // console.log(movieData)
@@ -30,7 +39,7 @@ export function LandingPage(){
   
 
     return (
-        <div>
+        <div className='search'>
             <h1 className='logo'>StreaME</h1>
             <input 
                 className='search-box' 
@@ -42,7 +51,9 @@ export function LandingPage(){
                 className='search-button'
                 onClick={() => {searchDb(search)}}
             >Find</button>
-            {searchResults}
+            <div className='card-container'>
+                {searchResults}
+            </div>
         </div>
     )
 }

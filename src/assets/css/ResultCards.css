@@ -1,0 +1,22 @@
+
+.result-cards {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid yellow;
+    align-items: center;
+    
+}
+
+.poster-image {
+    max-width: 50%;
+}
+
+h3, p {
+    color: white;
+    
+    margin-block: 0;
+}
+
+img {
+    color: white;
+}

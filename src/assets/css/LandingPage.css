@@ -2,4 +2,15 @@
     color: brown;
 }
 
+.search {
+    background-color: black;
+    border: 1px solid yellow;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
 //page comes down from top has streame logo and search bar in middle
