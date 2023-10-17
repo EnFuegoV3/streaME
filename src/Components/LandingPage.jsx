@@ -1,12 +1,14 @@
 import '../assets/css/LandingPage.css'
 import { useState, useEffect } from 'react'
 import { ResultCards } from './ResultCards'
+import { MovieModal } from './MovieModal'
 
 export function LandingPage(){
 
     const [search, setSearch] = useState('')
     const [movieData, setMovieData] = useState([])
     const [selectedMovie, setSelectedMovie] = useState([])
+    const [modalToggle, setModalToggle] = useState(false)
   
    
     async function searchDb(search){
@@ -28,11 +30,17 @@ export function LandingPage(){
     async function movieClick(id) {
         const results = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=280fef6f78d17d5f2dee520c8ea537f9`);
         const data = await results.json();
-        setSelectedMovie(data.results.US)
-        
+        setSelectedMovie(data.results.US.flatrate)
+        setModalToggle(prev => !prev)
     }
 
-    
+    // const movieModal = selectedMovie.map(channel => {
+    //     return <MovieModal 
+    //         key={channel.provider_id}
+    //         logo={channel.logo_path}
+    //         name={channel.provider_name}
+    //         />
+    // })
 
 
     const searchResults = movieData.map(movie => {
@@ -52,21 +60,25 @@ export function LandingPage(){
   
 
     return (
-        <div className='search'>
-            <h1 className='logo'>StreaME</h1>
-            <input 
-                className='search-box' 
-                type="text"
-                placeholder='Search Movies...'
-                onChange={handleSearch} 
-            />
-            <button 
-                className='search-button'
-                onClick={() => {searchDb(search)}}
-            >Find</button>
-            <div className='card-container'>
-                {searchResults}
+        <div>
+            <div className='search'>
+                <h1 className='logo'>StreaME</h1>
+                <input
+                    className='search-box'
+                    type="text"
+                    placeholder='Search Movies...'
+                    onChange={handleSearch}
+                />
+                <button
+                    className='search-button'
+                    onClick={() => {searchDb(search)}}
+                >Find</button>
+                
             </div>
+            <div className='card-container'>
+                    {searchResults}
+            </div>
+            
         </div>
     )
 }
