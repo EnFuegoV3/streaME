@@ -31,17 +31,12 @@ export function LandingPage(){
         const results = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=280fef6f78d17d5f2dee520c8ea537f9`);
         const data = await results.json();
         setSelectedMovie(data.results.US.flatrate)
-        setModalToggle(prev => !prev)
+        setModalToggle(true)
     }
 
-    // const movieModal = selectedMovie.map(channel => {
-    //     return <MovieModal 
-    //         key={channel.provider_id}
-    //         logo={channel.logo_path}
-    //         name={channel.provider_name}
-    //         />
-    // })
-
+    function modalClose() {
+        setModalToggle(false)
+    }
 
     const searchResults = movieData.map(movie => {
          return <ResultCards
@@ -60,7 +55,8 @@ export function LandingPage(){
   
 
     return (
-        <div>
+        <div style={{position: 'relative'}}>
+            {modalToggle && <MovieModal close={modalClose} movie={selectedMovie}/>}
             <div className='search'>
                 <h1 className='logo'>StreaME</h1>
                 <input
