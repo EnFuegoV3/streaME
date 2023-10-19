@@ -30,7 +30,7 @@ export function LandingPage(){
     async function movieClick(id) {
         const results = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=280fef6f78d17d5f2dee520c8ea537f9`);
         const data = await results.json();
-        setSelectedMovie(data.results.US.flatrate)
+        setSelectedMovie(data.results.US)
         setModalToggle(true)
     }
 
@@ -51,7 +51,7 @@ export function LandingPage(){
 
     // console.log(movieData)
     // console.log(search)
-    console.log(selectedMovie)
+    // console.log(selectedMovie)
   
 
     return (
