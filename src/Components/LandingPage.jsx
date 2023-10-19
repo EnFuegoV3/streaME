@@ -49,9 +49,9 @@ export function LandingPage(){
          />
     })
 
-    // console.log(movieData)
+    console.log(movieData)
     // console.log(search)
-    // console.log(selectedMovie)
+    console.log(selectedMovie)
   
 
     return (
