@@ -25,3 +25,7 @@ h2 {
     gap: 1em;
     align-items: center;
 }
+
+p {
+    color: whitesmoke;
+}

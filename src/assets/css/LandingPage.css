@@ -6,13 +6,16 @@
 
 .search {
     background-color: black;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
+    padding-bottom: 1em;
 }
 
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
 }
+
 
 
 //page comes down from top has streame logo and search bar in middle
