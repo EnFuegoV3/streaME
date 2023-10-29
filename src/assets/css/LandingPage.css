@@ -1,13 +1,37 @@
-
+.container {
+    height: 100dvh;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
 
 .logo {
     color: brown;
+    font-family: 'Kanit', sans-serif;
 }
 
 .search {
     background-color: black;
     /* border: 1px solid yellow; */
     padding-bottom: 1em;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.search2 {
+    background-color: black;
+    /* border: 1px solid yellow; */
+    padding-bottom: 1em;
+
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .card-container {

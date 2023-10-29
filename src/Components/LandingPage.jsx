@@ -9,13 +9,13 @@ export function LandingPage(){
     const [movieData, setMovieData] = useState([])
     const [selectedMovie, setSelectedMovie] = useState([])
     const [modalToggle, setModalToggle] = useState(false)
-  
+    const [cardToggle, setCardToggle] = useState(false)
    
     async function searchDb(search){
         const results = await fetch(`https://api.themoviedb.org/3/search/movie?query=${search}&api_key=280fef6f78d17d5f2dee520c8ea537f9`);
         const data = await results.json();
         setMovieData(data.results)
-        
+        setCardToggle(true)
     }
 
 
@@ -52,12 +52,13 @@ export function LandingPage(){
     console.log(movieData)
     // console.log(search)
     console.log(selectedMovie)
-  
+    
+
 
     return (
-        <div style={{position: 'relative'}}>
+        <div className='container' style={{position: 'relative'}}>
             {modalToggle && <MovieModal close={modalClose} movie={selectedMovie}/>}
-            <div className='search'>
+            <div className={cardToggle ? 'search2' : 'search'}>
                 <h1 className='logo'>StreaME</h1>
                 <input
                     className='search-box'
@@ -68,10 +69,11 @@ export function LandingPage(){
                 <button
                     className='search-button'
                     onClick={() => {searchDb(search)}}
+                    
                 >Find</button>
                 
             </div>
-            <div className='card-container'>
+            <div style={{display: cardToggle ? 'block' : 'grid'}} className='card-container'>
                     {searchResults}
             </div>
             
