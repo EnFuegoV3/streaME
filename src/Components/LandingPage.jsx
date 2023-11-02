@@ -73,7 +73,7 @@ export function LandingPage(){
                 >Find</button>
                 
             </div>
-            <div style={{display: cardToggle ? 'block' : 'grid'}} className='card-container'>
+            <div className='card-container'>
                     {searchResults}
             </div>
             
